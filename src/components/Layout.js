@@ -52,7 +52,6 @@ function Header() {
                     <Link to="/dashboard">Dashboard</Link>
                     <Link to="/about">About</Link>
                     <LogOutButton />
-                    
                 </Flex>
             </Flex>
         </View>
