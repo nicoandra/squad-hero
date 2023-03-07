@@ -3,15 +3,17 @@ import { Link, Outlet } from "react-router-dom"
 
 
 function Header() {
-    return (<View as="header" padding="10px">
-      <Flex direction="row" justifyContent="space-around" alignItems="center">
-        <Flex>
-          <Link to="/">Home</Link>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/about">About</Link>
+    return (
+        <View as="header" padding="10px">
+        <Flex direction="row" justifyContent="space-around" alignItems="center">
+            <Flex>
+            <Link to="/">Home</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/about">About</Link>
+            </Flex>
         </Flex>
-      </Flex>
-    </View>)
+        </View>
+    )
   }
   
 
