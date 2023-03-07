@@ -10,6 +10,11 @@
       "StackName": "amplify-squadhero-dev-81927",
       "StackId": "arn:aws:cloudformation:us-east-1:222432380591:stack/amplify-squadhero-dev-81927/b0584f20-bcea-11ed-953d-0e1712020b3f",
       "AmplifyAppId": "di6buyuobvai9"
+    },
+    "categories": {
+      "auth": {
+        "squadheroa1d399b2": {}
+      }
     }
   }
 }

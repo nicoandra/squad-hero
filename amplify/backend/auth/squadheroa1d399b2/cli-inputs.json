@@ -1,0 +1,47 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "squadheroa1d399b2_identitypool_a1d399b2",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "squadha1d399b2",
+    "userPoolName": "squadheroa1d399b2_userpool_a1d399b2",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email",
+      "name"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientLambdaRole": "squadha1d399b2_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "a1d399b2",
+    "resourceName": "squadheroa1d399b2",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "default",
+    "triggers": {},
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true
+  }
+}
