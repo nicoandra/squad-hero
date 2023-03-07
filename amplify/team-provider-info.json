@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-squadhero-dev-81927-authRole",
+      "UnauthRoleArn": "arn:aws:iam::222432380591:role/amplify-squadhero-dev-81927-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::222432380591:role/amplify-squadhero-dev-81927-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-squadhero-dev-81927-deployment",
+      "UnauthRoleName": "amplify-squadhero-dev-81927-unauthRole",
+      "StackName": "amplify-squadhero-dev-81927",
+      "StackId": "arn:aws:cloudformation:us-east-1:222432380591:stack/amplify-squadhero-dev-81927/b0584f20-bcea-11ed-953d-0e1712020b3f",
+      "AmplifyAppId": "di6buyuobvai9"
+    }
+  }
+}
