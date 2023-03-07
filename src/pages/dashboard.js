@@ -20,7 +20,11 @@ function NavBar() {
 }
 
 function EnterprisesHome() {
-    return <Heading>Enterprises Home</Heading>
+    return (
+        <Flex direction={{ base: 'column', medium: 'row' }}>
+            <Heading>Enterprises Home</Heading>
+        </Flex>
+    )
 }
 
 function ContractsHome() {
