@@ -1,5 +1,7 @@
-import { Heading } from "@aws-amplify/ui-react"
+import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 
-export default function Dashboard() {
+function Dashboard() {
     return (<Heading>Dashboard</Heading>)
 }
+
+export default withAuthenticator(Dashboard)

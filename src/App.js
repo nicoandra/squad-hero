@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import { Route, Routes } from "react-router-dom"
 
 import './App.css';
 import { Amplify } from 'aws-amplify';
 import awsExports from './aws-exports';
 import '@aws-amplify/ui-react/styles.css';
-import { View, Flex, Link, Heading } from "@aws-amplify/ui-react";
 
 import Layout from './components/Layout';
 import Home from "./pages/home"
