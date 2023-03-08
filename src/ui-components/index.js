@@ -6,3 +6,4 @@
 
 export { default as studioTheme } from "./studioTheme";
 export { default as CreateEnterprise } from "./CreateEnterprise";
+export { default as UpdateEnterprise } from "./UpdateEnterprise";

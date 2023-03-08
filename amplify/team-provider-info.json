@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "squadheroa1d399b2": {}
+        "squadheroa1d399b2": {},
+        "userPoolGroups": {}
       },
       "api": {
         "squadhero": {}

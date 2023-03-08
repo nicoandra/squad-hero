@@ -1,0 +1,64 @@
+
+import UpdateEnterprise from '../../ui-components/UpdateEnterprise';
+import { Heading } from '@aws-amplify/ui-react';
+import { API } from "aws-amplify";
+import { updateEnterprise } from '../../graphql/mutations';
+import { getEnterprise } from '../../graphql/queries';
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+
+function DashboardEditEnterprise() {
+    
+    const [ enterpriseData, setEnterpriseData ] = useState(false)
+    const [ receivedEnterpriseId, setReceivedEnterpriseId ] = useState(false)
+    const { enterpriseId } = useParams();
+
+    console.log("Reading data of", enterpriseId)
+
+    const query = async () => {
+        console.log("Try to perform query with", enterpriseId)
+        if(!enterpriseId) {
+            return; 
+        }
+        await API.graphql({
+            query: getEnterprise,
+            variables: {id: receivedEnterpriseId || enterpriseId}
+        }).then((r) => {
+            setEnterpriseData(r.data.getEnterprise);
+            setReceivedEnterpriseId(r.data.getEnterprise.id)
+            console.log(r.data.getEnterprise)
+        });        
+    }
+
+    const mutation = async (fields) => {
+        await API.graphql({
+            query: updateEnterprise,
+            variables: {
+                input: {
+                    "id": receivedEnterpriseId,
+                    "name": fields['name'],
+                    "officePhone": fields['officePhone'],
+                    "cellPhone": fields['cellPhone'],
+                    "email": fields['email']
+                }
+            }
+        }).then((r) => {
+            console.log("After update", r)
+            query()
+        });
+    }
+
+
+    useEffect(()=> {
+        query();
+    }, [enterpriseId]);
+
+    return (
+        <>
+            <Heading>Update Enterprise</Heading>
+            {receivedEnterpriseId && enterpriseData ? <UpdateEnterprise initialData={enterpriseData} onSubmit={mutation} /> : ''}
+        </>
+    )
+}
+
+export default DashboardEditEnterprise

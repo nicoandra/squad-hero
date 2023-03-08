@@ -39,7 +39,7 @@
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "triggers": {},
-    "userPoolGroupList": [],
+    "userPoolGroupList": ["admin", "nonAdmin"],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true

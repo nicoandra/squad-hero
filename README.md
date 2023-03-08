@@ -5,12 +5,14 @@
 1. Add *public* and *dashboard* section
 1. Add Auth
 1. Restrict access to dashboard to logged-in users only
+1. Enable API
+1. Show "Login" or "Welcome user" on header depending on login status. Fix bug that requires reload to change status.
+
 
 ## In progress
-1. Enable API
 
 ## Pending
-1. Show "Login" or "Welcome user" on header depending on login status. Fix bug that requires reload to change status.
+1. Make it so all users are added to the "nonAdmin" group by default except those having my email address.
 1. Make it so when logging out the user is redirected to the home page.
 1. Styling: https://www.youtube.com/watch?v=weT3YwBZt-k
 1. Remove auth, add auth with user groups, google recaptcha

@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 
 import EnterpriseDashboardList from './../components/enterprises/DashboardList'
 import DashboardCreateNewEnterprise from './../components/enterprises/DashboardCreateNew'
-import DashboardEditEnterprise from './../components/enterprises/DashboardEdit'
+import DashboardEditEnterprise from './enterprises/DashboardEdit'
 
 function NavBar() {
     const routerContext = useOutletContext()

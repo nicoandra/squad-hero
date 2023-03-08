@@ -9,31 +9,46 @@ import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { fetchByPath, validateField } from "./utils";
-export default function CreateEnterprise(props) {
-  const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
+export default function UpdateEnterprise(props) {
+  const { initialData, onSubmit, onValidate, onChange, overrides, ...rest } =
+    props;
   const initialValues = {
-    Field1: "",
-    Field0: "",
-    Field2: "",
-    Field3: "",
+    name: "",
+    cellPhone: "",
+    officePhone: "",
+    email: "",
   };
-  const [Field1, setField1] = React.useState(initialValues.Field1);
-  const [Field0, setField0] = React.useState(initialValues.Field0);
-  const [Field2, setField2] = React.useState(initialValues.Field2);
-  const [Field3, setField3] = React.useState(initialValues.Field3);
+  const [name, setName] = React.useState(initialValues.name);
+  const [cellPhone, setCellPhone] = React.useState(initialValues.cellPhone);
+  const [officePhone, setOfficePhone] = React.useState(
+    initialValues.officePhone
+  );
+  const [email, setEmail] = React.useState(initialValues.email);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setField1(initialValues.Field1);
-    setField0(initialValues.Field0);
-    setField2(initialValues.Field2);
-    setField3(initialValues.Field3);
+    const cleanValues = initialData
+      ? { ...initialValues, ...initialData }
+      : initialValues;
+    setName(cleanValues.name);
+    setCellPhone(cleanValues.cellPhone);
+    setOfficePhone(cleanValues.officePhone);
+    setEmail(cleanValues.email);
     setErrors({});
   };
+  React.useEffect(resetStateValues, [initialData]);
+  React.useEffect(() => {
+    if (initialData) {
+      setName(initialData.name);
+      setCellPhone(initialData.cellPhone);
+      setOfficePhone(initialData.officePhone);
+      setEmail(initialData.email);
+    }
+  }, []);
   const validations = {
-    Field1: [{ type: "Required" }],
-    Field0: [{ type: "Phone" }],
-    Field2: [{ type: "Phone" }],
-    Field3: [{ type: "Email" }],
+    name: [{ type: "Required" }],
+    cellPhone: [{ type: "Required" }, { type: "Phone" }],
+    officePhone: [{ type: "Required" }, { type: "Phone" }],
+    email: [{ type: "Required" }, { type: "Email" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -61,10 +76,10 @@ export default function CreateEnterprise(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         const modelFields = {
-          Field1,
-          Field0,
-          Field2,
-          Field3,
+          name,
+          cellPhone,
+          officePhone,
+          email,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -87,131 +102,134 @@ export default function CreateEnterprise(props) {
         }
         await onSubmit(modelFields);
       }}
-      {...getOverrideProps(overrides, "CreateEnterprise")}
+      {...getOverrideProps(overrides, "UpdateEnterprise")}
       {...rest}
     >
       <TextField
-        label="Enterprise Name"
+        label="Name"
         isRequired={true}
-        value={Field1}
+        value={name}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Field1: value,
-              Field0,
-              Field2,
-              Field3,
+              name: value,
+              cellPhone,
+              officePhone,
+              email,
             };
             const result = onChange(modelFields);
-            value = result?.Field1 ?? value;
+            value = result?.name ?? value;
           }
-          if (errors.Field1?.hasError) {
-            runValidationTasks("Field1", value);
+          if (errors.name?.hasError) {
+            runValidationTasks("name", value);
           }
-          setField1(value);
+          setName(value);
         }}
-        onBlur={() => runValidationTasks("Field1", Field1)}
-        errorMessage={errors.Field1?.errorMessage}
-        hasError={errors.Field1?.hasError}
-        {...getOverrideProps(overrides, "Field1")}
+        onBlur={() => runValidationTasks("name", name)}
+        errorMessage={errors.name?.errorMessage}
+        hasError={errors.name?.hasError}
+        {...getOverrideProps(overrides, "name")}
       ></TextField>
       <TextField
-        label="Office Phone Number"
+        label="Cell Phone"
+        isRequired={true}
         type="tel"
-        value={Field0}
+        value={cellPhone}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Field1,
-              Field0: value,
-              Field2,
-              Field3,
+              name,
+              cellPhone: value,
+              officePhone,
+              email,
             };
             const result = onChange(modelFields);
-            value = result?.Field0 ?? value;
+            value = result?.cellPhone ?? value;
           }
-          if (errors.Field0?.hasError) {
-            runValidationTasks("Field0", value);
+          if (errors.cellPhone?.hasError) {
+            runValidationTasks("cellPhone", value);
           }
-          setField0(value);
+          setCellPhone(value);
         }}
-        onBlur={() => runValidationTasks("Field0", Field0)}
-        errorMessage={errors.Field0?.errorMessage}
-        hasError={errors.Field0?.hasError}
-        {...getOverrideProps(overrides, "Field0")}
+        onBlur={() => runValidationTasks("cellPhone", cellPhone)}
+        errorMessage={errors.cellPhone?.errorMessage}
+        hasError={errors.cellPhone?.hasError}
+        {...getOverrideProps(overrides, "cellPhone")}
       ></TextField>
       <TextField
-        label="Cellphone"
+        label="Office Phone"
+        isRequired={true}
         type="tel"
-        value={Field2}
+        value={officePhone}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Field1,
-              Field0,
-              Field2: value,
-              Field3,
+              name,
+              cellPhone,
+              officePhone: value,
+              email,
             };
             const result = onChange(modelFields);
-            value = result?.Field2 ?? value;
+            value = result?.officePhone ?? value;
           }
-          if (errors.Field2?.hasError) {
-            runValidationTasks("Field2", value);
+          if (errors.officePhone?.hasError) {
+            runValidationTasks("officePhone", value);
           }
-          setField2(value);
+          setOfficePhone(value);
         }}
-        onBlur={() => runValidationTasks("Field2", Field2)}
-        errorMessage={errors.Field2?.errorMessage}
-        hasError={errors.Field2?.hasError}
-        {...getOverrideProps(overrides, "Field2")}
+        onBlur={() => runValidationTasks("officePhone", officePhone)}
+        errorMessage={errors.officePhone?.errorMessage}
+        hasError={errors.officePhone?.hasError}
+        {...getOverrideProps(overrides, "officePhone")}
       ></TextField>
       <TextField
-        label="Email"
-        value={Field3}
+        label="email"
+        isRequired={true}
+        value={email}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Field1,
-              Field0,
-              Field2,
-              Field3: value,
+              name,
+              cellPhone,
+              officePhone,
+              email: value,
             };
             const result = onChange(modelFields);
-            value = result?.Field3 ?? value;
+            value = result?.email ?? value;
           }
-          if (errors.Field3?.hasError) {
-            runValidationTasks("Field3", value);
+          if (errors.email?.hasError) {
+            runValidationTasks("email", value);
           }
-          setField3(value);
+          setEmail(value);
         }}
-        onBlur={() => runValidationTasks("Field3", Field3)}
-        errorMessage={errors.Field3?.errorMessage}
-        hasError={errors.Field3?.hasError}
-        {...getOverrideProps(overrides, "Field3")}
+        onBlur={() => runValidationTasks("email", email)}
+        errorMessage={errors.email?.errorMessage}
+        hasError={errors.email?.hasError}
+        {...getOverrideProps(overrides, "email")}
       ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Clear"
+          children="Reset"
           type="reset"
           onClick={(event) => {
             event.preventDefault();
             resetStateValues();
           }}
-          {...getOverrideProps(overrides, "ClearButton")}
+          {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
           gap="15px"
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
           <Button
-            children="Create"
+            children="Submit"
             type="submit"
             variation="primary"
             isDisabled={Object.values(errors).some((e) => e?.hasError)}
