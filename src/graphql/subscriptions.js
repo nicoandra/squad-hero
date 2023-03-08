@@ -1,120 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateEnterprise = /* GraphQL */ `
-  subscription OnCreateEnterprise(
-    $filter: ModelSubscriptionEnterpriseFilterInput
-    $owner: String
-  ) {
-    onCreateEnterprise(filter: $filter, owner: $owner) {
-      id
-      name
-      officePhone
-      cellPhone
-      email
-      contracts {
-        items {
-          id
-          enterpriseId
-          customerEmail
-          customerName
-          customerPhone
-          startDate
-          endDate
-          customerAddressStreet
-          customerAddressNumber
-          customerAddressCity
-          customerAddressZipCode
-          latitude
-          longitude
-          createdAt
-          updatedAt
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateEnterprise = /* GraphQL */ `
-  subscription OnUpdateEnterprise(
-    $filter: ModelSubscriptionEnterpriseFilterInput
-    $owner: String
-  ) {
-    onUpdateEnterprise(filter: $filter, owner: $owner) {
-      id
-      name
-      officePhone
-      cellPhone
-      email
-      contracts {
-        items {
-          id
-          enterpriseId
-          customerEmail
-          customerName
-          customerPhone
-          startDate
-          endDate
-          customerAddressStreet
-          customerAddressNumber
-          customerAddressCity
-          customerAddressZipCode
-          latitude
-          longitude
-          createdAt
-          updatedAt
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteEnterprise = /* GraphQL */ `
-  subscription OnDeleteEnterprise(
-    $filter: ModelSubscriptionEnterpriseFilterInput
-    $owner: String
-  ) {
-    onDeleteEnterprise(filter: $filter, owner: $owner) {
-      id
-      name
-      officePhone
-      cellPhone
-      email
-      contracts {
-        items {
-          id
-          enterpriseId
-          customerEmail
-          customerName
-          customerPhone
-          startDate
-          endDate
-          customerAddressStreet
-          customerAddressNumber
-          customerAddressCity
-          customerAddressZipCode
-          latitude
-          longitude
-          createdAt
-          updatedAt
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const onCreateContract = /* GraphQL */ `
   subscription OnCreateContract(
     $filter: ModelSubscriptionContractFilterInput
@@ -140,12 +26,12 @@ export const onCreateContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
@@ -178,12 +64,12 @@ export const onUpdateContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
@@ -216,16 +102,130 @@ export const onDeleteContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
       owner
+    }
+  }
+`;
+export const onCreateEnterprise = /* GraphQL */ `
+  subscription OnCreateEnterprise(
+    $filter: ModelSubscriptionEnterpriseFilterInput
+    $owner: String
+  ) {
+    onCreateEnterprise(filter: $filter, owner: $owner) {
+      id
+      name
+      officePhone
+      cellPhone
+      email
+      owner
+      contracts {
+        items {
+          id
+          enterpriseId
+          customerEmail
+          customerName
+          customerPhone
+          startDate
+          endDate
+          customerAddressStreet
+          customerAddressNumber
+          customerAddressCity
+          customerAddressZipCode
+          latitude
+          longitude
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateEnterprise = /* GraphQL */ `
+  subscription OnUpdateEnterprise(
+    $filter: ModelSubscriptionEnterpriseFilterInput
+    $owner: String
+  ) {
+    onUpdateEnterprise(filter: $filter, owner: $owner) {
+      id
+      name
+      officePhone
+      cellPhone
+      email
+      owner
+      contracts {
+        items {
+          id
+          enterpriseId
+          customerEmail
+          customerName
+          customerPhone
+          startDate
+          endDate
+          customerAddressStreet
+          customerAddressNumber
+          customerAddressCity
+          customerAddressZipCode
+          latitude
+          longitude
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteEnterprise = /* GraphQL */ `
+  subscription OnDeleteEnterprise(
+    $filter: ModelSubscriptionEnterpriseFilterInput
+    $owner: String
+  ) {
+    onDeleteEnterprise(filter: $filter, owner: $owner) {
+      id
+      name
+      officePhone
+      cellPhone
+      email
+      owner
+      contracts {
+        items {
+          id
+          enterpriseId
+          customerEmail
+          customerName
+          customerPhone
+          startDate
+          endDate
+          customerAddressStreet
+          customerAddressNumber
+          customerAddressCity
+          customerAddressZipCode
+          latitude
+          longitude
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;

@@ -1,73 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getEnterprise = /* GraphQL */ `
-  query GetEnterprise($id: ID!) {
-    getEnterprise(id: $id) {
-      id
-      name
-      officePhone
-      cellPhone
-      email
-      contracts {
-        items {
-          id
-          enterpriseId
-          customerEmail
-          customerName
-          customerPhone
-          startDate
-          endDate
-          customerAddressStreet
-          customerAddressNumber
-          customerAddressCity
-          customerAddressZipCode
-          latitude
-          longitude
-          createdAt
-          updatedAt
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listEnterprises = /* GraphQL */ `
-  query ListEnterprises(
-    $id: ID
-    $filter: ModelEnterpriseFilterInput
-    $limit: Int
-    $nextToken: String
-    $sortDirection: ModelSortDirection
-  ) {
-    listEnterprises(
-      id: $id
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
-      items {
-        id
-        name
-        officePhone
-        cellPhone
-        email
-        contracts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
 export const getContract = /* GraphQL */ `
   query GetContract($id: ID!) {
     getContract(id: $id) {
@@ -90,12 +23,12 @@ export const getContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
@@ -138,9 +71,9 @@ export const listContracts = /* GraphQL */ `
           officePhone
           cellPhone
           email
+          owner
           createdAt
           updatedAt
-          owner
         }
         createdAt
         updatedAt
@@ -187,13 +120,114 @@ export const contractsByEnterpriseIdAndStartDate = /* GraphQL */ `
           officePhone
           cellPhone
           email
+          owner
           createdAt
           updatedAt
-          owner
         }
         createdAt
         updatedAt
         owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getEnterprise = /* GraphQL */ `
+  query GetEnterprise($id: ID!) {
+    getEnterprise(id: $id) {
+      id
+      name
+      officePhone
+      cellPhone
+      email
+      owner
+      contracts {
+        items {
+          id
+          enterpriseId
+          customerEmail
+          customerName
+          customerPhone
+          startDate
+          endDate
+          customerAddressStreet
+          customerAddressNumber
+          customerAddressCity
+          customerAddressZipCode
+          latitude
+          longitude
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listEnterprises = /* GraphQL */ `
+  query ListEnterprises(
+    $id: ID
+    $filter: ModelEnterpriseFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listEnterprises(
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        id
+        name
+        officePhone
+        cellPhone
+        email
+        owner
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const enterprisesByOwnerAndId = /* GraphQL */ `
+  query EnterprisesByOwnerAndId(
+    $owner: String!
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelEnterpriseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    enterprisesByOwnerAndId(
+      owner: $owner
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        officePhone
+        cellPhone
+        email
+        owner
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       nextToken
     }

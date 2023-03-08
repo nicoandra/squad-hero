@@ -12,6 +12,7 @@ export const createEnterprise = /* GraphQL */ `
       officePhone
       cellPhone
       email
+      owner
       contracts {
         items {
           id
@@ -35,7 +36,6 @@ export const createEnterprise = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -50,6 +50,7 @@ export const updateEnterprise = /* GraphQL */ `
       officePhone
       cellPhone
       email
+      owner
       contracts {
         items {
           id
@@ -73,7 +74,6 @@ export const updateEnterprise = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -88,6 +88,7 @@ export const deleteEnterprise = /* GraphQL */ `
       officePhone
       cellPhone
       email
+      owner
       contracts {
         items {
           id
@@ -111,7 +112,6 @@ export const deleteEnterprise = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -140,12 +140,12 @@ export const createContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
@@ -178,12 +178,12 @@ export const updateContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
@@ -216,12 +216,12 @@ export const deleteContract = /* GraphQL */ `
         officePhone
         cellPhone
         email
+        owner
         contracts {
           nextToken
         }
         createdAt
         updatedAt
-        owner
       }
       createdAt
       updatedAt
