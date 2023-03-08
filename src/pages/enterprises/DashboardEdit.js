@@ -4,7 +4,7 @@ import { Heading } from '@aws-amplify/ui-react';
 import { API } from "aws-amplify";
 import { updateEnterprise } from '../../graphql/mutations';
 import { getEnterprise } from '../../graphql/queries';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 
 function DashboardEditEnterprise() {
@@ -13,10 +13,9 @@ function DashboardEditEnterprise() {
     const [ receivedEnterpriseId, setReceivedEnterpriseId ] = useState(false)
     const { enterpriseId } = useParams();
 
-    console.log("Reading data of", enterpriseId)
 
-    const query = async () => {
-        console.log("Try to perform query with", enterpriseId)
+
+    const query = useCallback(async () => {
         if(!enterpriseId) {
             return; 
         }
@@ -28,7 +27,7 @@ function DashboardEditEnterprise() {
             setReceivedEnterpriseId(r.data.getEnterprise.id)
             console.log(r.data.getEnterprise)
         });        
-    }
+    }, [enterpriseId, receivedEnterpriseId])
 
     const mutation = async (fields) => {
         await API.graphql({
@@ -48,10 +47,11 @@ function DashboardEditEnterprise() {
         });
     }
 
-
     useEffect(()=> {
         query();
-    }, [enterpriseId]);
+    }, [enterpriseId, query]);
+
+
 
     return (
         <>

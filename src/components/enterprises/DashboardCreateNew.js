@@ -6,7 +6,7 @@ import { createEnterprise } from './../../graphql/mutations';
 
 function DashboardCreateNewEnterprise({ onSuccess, onError}) {
     const createNewEnterprise = async (fields) => {
-        const newEnterprise = await API.graphql({
+        await API.graphql({
             query: createEnterprise,
             variables: {
                 input: {
@@ -24,7 +24,7 @@ function DashboardCreateNewEnterprise({ onSuccess, onError}) {
     return (
         <>
             <Heading >Create new Enterprise</Heading>
-            <CreateEnterprise onSubmit={createNewEnterprise}/>
+            <CreateEnterprise onSubmit={createNewEnterprise} />
         </>
     )
 }

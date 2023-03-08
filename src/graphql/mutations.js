@@ -1,117 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createContract = /* GraphQL */ `
-  mutation CreateContract(
-    $input: CreateContractInput!
-    $condition: ModelContractConditionInput
-  ) {
-    createContract(input: $input, condition: $condition) {
-      id
-      enterpriseId
-      customerEmail
-      customerName
-      customerPhone
-      startDate
-      endDate
-      customerAddressStreet
-      customerAddressNumber
-      customerAddressCity
-      customerAddressZipCode
-      latitude
-      longitude
-      enterprise {
-        id
-        name
-        officePhone
-        cellPhone
-        email
-        contracts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateContract = /* GraphQL */ `
-  mutation UpdateContract(
-    $input: UpdateContractInput!
-    $condition: ModelContractConditionInput
-  ) {
-    updateContract(input: $input, condition: $condition) {
-      id
-      enterpriseId
-      customerEmail
-      customerName
-      customerPhone
-      startDate
-      endDate
-      customerAddressStreet
-      customerAddressNumber
-      customerAddressCity
-      customerAddressZipCode
-      latitude
-      longitude
-      enterprise {
-        id
-        name
-        officePhone
-        cellPhone
-        email
-        contracts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteContract = /* GraphQL */ `
-  mutation DeleteContract(
-    $input: DeleteContractInput!
-    $condition: ModelContractConditionInput
-  ) {
-    deleteContract(input: $input, condition: $condition) {
-      id
-      enterpriseId
-      customerEmail
-      customerName
-      customerPhone
-      startDate
-      endDate
-      customerAddressStreet
-      customerAddressNumber
-      customerAddressCity
-      customerAddressZipCode
-      latitude
-      longitude
-      enterprise {
-        id
-        name
-        officePhone
-        cellPhone
-        email
-        contracts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createEnterprise = /* GraphQL */ `
   mutation CreateEnterprise(
     $input: CreateEnterpriseInput!
@@ -140,6 +29,7 @@ export const createEnterprise = /* GraphQL */ `
           longitude
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -177,6 +67,7 @@ export const updateEnterprise = /* GraphQL */ `
           longitude
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -214,8 +105,123 @@ export const deleteEnterprise = /* GraphQL */ `
           longitude
           createdAt
           updatedAt
+          owner
         }
         nextToken
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createContract = /* GraphQL */ `
+  mutation CreateContract(
+    $input: CreateContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    createContract(input: $input, condition: $condition) {
+      id
+      enterpriseId
+      customerEmail
+      customerName
+      customerPhone
+      startDate
+      endDate
+      customerAddressStreet
+      customerAddressNumber
+      customerAddressCity
+      customerAddressZipCode
+      latitude
+      longitude
+      enterprise {
+        id
+        name
+        officePhone
+        cellPhone
+        email
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateContract = /* GraphQL */ `
+  mutation UpdateContract(
+    $input: UpdateContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    updateContract(input: $input, condition: $condition) {
+      id
+      enterpriseId
+      customerEmail
+      customerName
+      customerPhone
+      startDate
+      endDate
+      customerAddressStreet
+      customerAddressNumber
+      customerAddressCity
+      customerAddressZipCode
+      latitude
+      longitude
+      enterprise {
+        id
+        name
+        officePhone
+        cellPhone
+        email
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteContract = /* GraphQL */ `
+  mutation DeleteContract(
+    $input: DeleteContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    deleteContract(input: $input, condition: $condition) {
+      id
+      enterpriseId
+      customerEmail
+      customerName
+      customerPhone
+      startDate
+      endDate
+      customerAddressStreet
+      customerAddressNumber
+      customerAddressCity
+      customerAddressZipCode
+      latitude
+      longitude
+      enterprise {
+        id
+        name
+        officePhone
+        cellPhone
+        email
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
       }
       createdAt
       updatedAt

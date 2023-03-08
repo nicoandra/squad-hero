@@ -1,8 +1,7 @@
 import { Heading, Authenticator } from '@aws-amplify/ui-react';
 import { Route, Routes } from "react-router-dom"
-import { ScrollView, Grid, View, Flex, Button } from "@aws-amplify/ui-react"
+import { ScrollView, View, Flex } from "@aws-amplify/ui-react"
 import { Link, Outlet } from "react-router-dom"
-import { useOutletContext } from "react-router-dom"
 import { API } from "aws-amplify";
 import { listEnterprises } from "./../graphql/queries";
 import { useEffect, useState } from 'react'
@@ -12,7 +11,6 @@ import DashboardCreateNewEnterprise from './../components/enterprises/DashboardC
 import DashboardEditEnterprise from './enterprises/DashboardEdit'
 
 function NavBar() {
-    const routerContext = useOutletContext()
     return (
         <View as="header" padding="10px">
             <Flex direction="row" justifyContent="space-around" alignItems="center">
@@ -67,7 +65,9 @@ function DashboardLayoutWithOutlet () {
     return (
         <Authenticator>
             <DashboardHeader />
-            <Outlet />
+            <ScrollView>
+                <Outlet />
+            </ScrollView>
         </Authenticator>            
     )
 }
