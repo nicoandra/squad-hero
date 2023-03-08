@@ -20,7 +20,17 @@
   "auth": {
     "squadheroa1d399b2": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -65,6 +75,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "squadheroa1d399b2PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -81,6 +96,14 @@
         {
           "category": "function",
           "resourceName": "PostUserConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_squadheroa1d399b2PostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PostConfirmation"
         }
       ]
     }

@@ -23,6 +23,9 @@
         "PostUserConfirmation": {
           "deploymentBucketName": "amplify-squadhero-dev-81927-deployment",
           "s3Key": "amplify-builds/PostUserConfirmation-6c4145774e4769303370-build.zip"
+        },
+        "squadheroa1d399b2PostConfirmation": {
+          "GROUP": "nonAdmin"
         }
       }
     }
