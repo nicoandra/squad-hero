@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-squadhero-dev-81927-unauthRole",
       "StackName": "amplify-squadhero-dev-81927",
       "StackId": "arn:aws:cloudformation:us-east-1:222432380591:stack/amplify-squadhero-dev-81927/b0584f20-bcea-11ed-953d-0e1712020b3f",
-      "AmplifyAppId": "di6buyuobvai9"
+      "AmplifyAppId": "di6buyuobvai9",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-squadhero-dev-81927-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -25,7 +26,19 @@
           "s3Key": "amplify-builds/PostUserConfirmation-6c4145774e4769303370-build.zip"
         },
         "squadheroa1d399b2PostConfirmation": {
-          "GROUP": "nonAdmin"
+          "GROUP": "nonAdmin",
+          "deploymentBucketName": "amplify-squadhero-dev-81927-deployment",
+          "s3Key": "amplify-builds/squadheroa1d399b2PostConfirmation-3334507163554b2b5a52-build.zip"
+        },
+        "squadheroa1d399b2PreSignup": {
+          "DOMAINALLOWLIST": "",
+          "DOMAINDENYLIST": ""
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "di6buyuobvai9",
+          "type": "manual"
         }
       }
     }

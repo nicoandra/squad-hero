@@ -1,0 +1,20 @@
+{
+  "trigger": true,
+  "modules": [
+    "email-filter-allowlist",
+    "email-filter-denylist"
+  ],
+  "parentResource": "squadheroa1d399b2",
+  "functionName": "squadheroa1d399b2PreSignup",
+  "resourceName": "squadheroa1d399b2PreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "squadheroa1d399b2PreSignup",
+  "skipEdit": true,
+  "DOMAINALLOWLIST": "",
+  "DOMAINDENYLIST": "",
+  "enableCors": false
+}

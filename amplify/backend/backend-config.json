@@ -29,6 +29,15 @@
           "category": "function",
           "resourceName": "squadheroa1d399b2PostConfirmation",
           "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PreSignup",
+          "triggerProvider": "Cognito"
         }
       ],
       "frontendAuthConfig": {
@@ -80,6 +89,18 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "squadheroa1d399b2PreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
     }
   },
   "parameters": {
@@ -104,6 +125,54 @@
         {
           "category": "function",
           "resourceName": "squadheroa1d399b2PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_squadheroa1d399b2PostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_squadheroa1d399b2PostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_squadheroa1d399b2PreSignup_DOMAINALLOWLIST": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_squadheroa1d399b2PreSignup_DOMAINDENYLIST": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "squadheroa1d399b2PreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }
