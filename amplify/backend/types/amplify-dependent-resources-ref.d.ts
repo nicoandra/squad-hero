@@ -20,5 +20,14 @@ export type AmplifyDependentResourcesAttributes = {
       "adminGroupRole": "string",
       "nonAdminGroupRole": "string"
     }
+  },
+  "function": {
+    "PostUserConfirmation": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
   }
 }
