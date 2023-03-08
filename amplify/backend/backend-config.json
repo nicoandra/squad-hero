@@ -1,10 +1,25 @@
 {
   "api": {
     "squadhero": {
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "squadheroa1d399b2"
+        }
+      ],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authsquadheroa1d399b2"
+              }
+            }
+          ],
           "defaultAuthentication": {
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7
@@ -28,15 +43,6 @@
           ],
           "category": "function",
           "resourceName": "squadheroa1d399b2PostConfirmation",
-          "triggerProvider": "Cognito"
-        },
-        {
-          "attributes": [
-            "Arn",
-            "Name"
-          ],
-          "category": "function",
-          "resourceName": "squadheroa1d399b2PreSignup",
           "triggerProvider": "Cognito"
         }
       ],
@@ -86,11 +92,6 @@
       "service": "Lambda"
     },
     "squadheroa1d399b2PostConfirmation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "squadheroa1d399b2PreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"

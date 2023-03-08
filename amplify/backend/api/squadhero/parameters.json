@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "squadhero",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authsquadheroa1d399b2",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

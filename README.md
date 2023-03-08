@@ -10,7 +10,7 @@
 1. Make it so all users are added to the "nonAdmin" group by default.
 
 ## In progress
-1. 
+1. Allow only "owner" and "admin" to update enterprises
 
 ## Pending
 1. Disallow duplicated emails, use pre-sign-up lambda and search for email in Cognito.

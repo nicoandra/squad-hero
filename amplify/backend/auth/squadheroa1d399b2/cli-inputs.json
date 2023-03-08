@@ -41,10 +41,6 @@
     "triggers": {
       "PostConfirmation": [
         "add-to-group"
-      ],
-      "PreSignup": [
-        "email-filter-allowlist",
-        "email-filter-denylist"
       ]
     },
     "userPoolGroupList": [
@@ -76,26 +72,17 @@
           "Arn",
           "Name"
         ]
-      },
-      {
-        "category": "function",
-        "resourceName": "squadheroa1d399b2PreSignup",
-        "triggerProvider": "Cognito",
-        "attributes": [
-          "Arn",
-          "Name"
-        ]
       }
     ],
     "thirdPartyAuth": false,
-    "userPoolGroups": false,
+    "userPoolGroups": true,
     "adminQueries": false,
     "hostedUI": false,
     "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"squadheroa1d399b2PostConfirmation\"\n  },\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"squadheroa1d399b2PreSignup\"\n  }\n]",
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"squadheroa1d399b2PostConfirmation\"\n  }\n]",
     "permissions": [
       "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
     ]
