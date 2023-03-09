@@ -33,7 +33,6 @@ function EnterprisesHome() {
                 owner: 'c216b0a4-188a-4062-aa58-8c0d0b27c307::nicoadmin'
             }
         });
-        console.log(allEnterprises);
         setMyEnterprises(allEnterprises.data.enterprisesByOwner.items)
     }
 

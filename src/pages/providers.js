@@ -3,6 +3,7 @@ import { Collection, Heading, Card, View } from "@aws-amplify/ui-react"
 import { API } from "aws-amplify";
 import { listEnterprises } from './../graphql/queries';
 import { useState, useEffect, useCallback } from 'react'
+import EnterpriseCard from './../components/EnterpriseCard'
 
 export default function Providers() {
     const [providers, setProviders] = useState([])
@@ -30,9 +31,7 @@ export default function Providers() {
             <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
                 {(item, index) => {
                     return (
-                        <Card key={index}>
-                            {JSON.stringify(item)}
-                        </Card>
+                        <EnterpriseCard enterprise={item} index={index}/>
                     )
                 }}
             </Collection>
