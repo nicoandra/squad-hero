@@ -1,9 +1,9 @@
 
-import UpdateEnterprise from '../../ui-components/UpdateEnterprise';
+import UpdateEnterprise from '../../../ui-components/UpdateEnterprise';
 import { Heading } from '@aws-amplify/ui-react';
 import { API } from "aws-amplify";
-import { updateEnterprise } from '../../graphql/mutations';
-import { getEnterprise } from '../../graphql/queries';
+import { updateEnterprise } from '../../../graphql/mutations';
+import { getEnterprise } from '../../../graphql/queries';
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -12,8 +12,6 @@ function DashboardEditEnterprise() {
     const [ enterpriseData, setEnterpriseData ] = useState(false)
     const [ receivedEnterpriseId, setReceivedEnterpriseId ] = useState(false)
     const { enterpriseId } = useParams();
-
-
 
     const query = useCallback(async () => {
         if(!enterpriseId) {

@@ -3,16 +3,17 @@
 # input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
 type Enterprise @model @auth(rules: [
-  {allow: owner, operations: [create, update, read]},
+  {allow: owner, operations: [create, update]},
+  {allow: groups, groups: ["admin"], operations: [create, update, delete]},
+  {allow: private, operations: [read]},
   {allow: public, operations: [read]},
-  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]},
 ]) {
   id: ID! @primaryKey
   name: String!
   officePhone: AWSPhone!
   cellPhone: AWSPhone!
   email: AWSEmail!
-  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }]) @index(name: "byOwnerId", sortKeyFields: ["id"])
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }, {allow: private, operations: [read]}, {allow: public, operations: [read]},]) @index(name: "byOwnerId")
   contracts: [Contract] @hasMany(indexName: "byEnterpriseByDate", fields: ["id"])
 }
 
@@ -30,5 +31,6 @@ type Contract @model @auth(rules: [{allow: owner}]) {
   customerAddressZipCode: String!
   latitude: Float
   longitude: Float
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }]) @index(name: "byOwnerId", sortKeyFields: ["id"])
   enterprise: Enterprise @belongsTo(fields: ["enterpriseId"])
 }

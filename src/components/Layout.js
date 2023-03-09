@@ -23,6 +23,7 @@ function Header({currentUser}) {
                     <Link to="/">Home</Link>
                     <Link to="/dashboard">Dashboard</Link>
                     <Link to="/about">About</Link>
+                    <Link to="/providers">Providers</Link>
                     <LogOutButton currentUser={currentUser} />
                 </Flex>
             </Flex>

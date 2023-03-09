@@ -17,6 +17,7 @@ export const getContract = /* GraphQL */ `
       customerAddressZipCode
       latitude
       longitude
+      owner
       enterprise {
         id
         name
@@ -32,7 +33,6 @@ export const getContract = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -65,6 +65,7 @@ export const listContracts = /* GraphQL */ `
         customerAddressZipCode
         latitude
         longitude
+        owner
         enterprise {
           id
           name
@@ -77,7 +78,6 @@ export const listContracts = /* GraphQL */ `
         }
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
@@ -114,6 +114,7 @@ export const contractsByEnterpriseIdAndStartDate = /* GraphQL */ `
         customerAddressZipCode
         latitude
         longitude
+        owner
         enterprise {
           id
           name
@@ -126,7 +127,55 @@ export const contractsByEnterpriseIdAndStartDate = /* GraphQL */ `
         }
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const contractsByOwnerAndId = /* GraphQL */ `
+  query ContractsByOwnerAndId(
+    $owner: String!
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContractFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    contractsByOwnerAndId(
+      owner: $owner
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        enterpriseId
+        customerEmail
+        customerName
+        customerPhone
+        startDate
+        endDate
+        customerAddressStreet
+        customerAddressNumber
+        customerAddressCity
+        customerAddressZipCode
+        latitude
+        longitude
         owner
+        enterprise {
+          id
+          name
+          officePhone
+          cellPhone
+          email
+          owner
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -156,9 +205,9 @@ export const getEnterprise = /* GraphQL */ `
           customerAddressZipCode
           latitude
           longitude
+          owner
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
@@ -199,18 +248,16 @@ export const listEnterprises = /* GraphQL */ `
     }
   }
 `;
-export const enterprisesByOwnerAndId = /* GraphQL */ `
-  query EnterprisesByOwnerAndId(
+export const enterprisesByOwner = /* GraphQL */ `
+  query EnterprisesByOwner(
     $owner: String!
-    $id: ModelIDKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelEnterpriseFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    enterprisesByOwnerAndId(
+    enterprisesByOwner(
       owner: $owner
-      id: $id
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit

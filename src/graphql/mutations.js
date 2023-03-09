@@ -28,9 +28,9 @@ export const createEnterprise = /* GraphQL */ `
           customerAddressZipCode
           latitude
           longitude
+          owner
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
@@ -66,9 +66,9 @@ export const updateEnterprise = /* GraphQL */ `
           customerAddressZipCode
           latitude
           longitude
+          owner
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
@@ -104,9 +104,9 @@ export const deleteEnterprise = /* GraphQL */ `
           customerAddressZipCode
           latitude
           longitude
+          owner
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
@@ -134,6 +134,7 @@ export const createContract = /* GraphQL */ `
       customerAddressZipCode
       latitude
       longitude
+      owner
       enterprise {
         id
         name
@@ -149,7 +150,6 @@ export const createContract = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -172,6 +172,7 @@ export const updateContract = /* GraphQL */ `
       customerAddressZipCode
       latitude
       longitude
+      owner
       enterprise {
         id
         name
@@ -187,7 +188,6 @@ export const updateContract = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -210,6 +210,7 @@ export const deleteContract = /* GraphQL */ `
       customerAddressZipCode
       latitude
       longitude
+      owner
       enterprise {
         id
         name
@@ -225,7 +226,6 @@ export const deleteContract = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      owner
     }
   }
 `;

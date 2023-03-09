@@ -8,7 +8,7 @@ import '@aws-amplify/ui-react/styles.css';
 import Layout from './components/Layout';
 import Home from "./pages/home"
 import About from "./pages/about"
-
+import Providers from "./pages/providers"
 import { Dashboard } from "./pages/dashboard"
 
 Amplify.configure(awsExports);
@@ -23,6 +23,7 @@ function App() {
             <Route index element={<Dashboard />} />
           </Route>  
           <Route path="about" element={<About />} />
+          <Route path="providers" element={<Providers />} />
         </Route>
       </Routes>
     </>

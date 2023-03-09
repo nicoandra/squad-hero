@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom"
 import { ScrollView, View, Flex } from "@aws-amplify/ui-react"
 import { Link, Outlet } from "react-router-dom"
 import { API } from "aws-amplify";
-import { listEnterprises } from "./../graphql/queries";
+import { enterprisesByOwner } from "./../graphql/queries";
 import { useEffect, useState } from 'react'
 
 import EnterpriseDashboardList from './../components/enterprises/DashboardList'
 import DashboardCreateNewEnterprise from './../components/enterprises/DashboardCreateNew'
-import DashboardEditEnterprise from './enterprises/DashboardEdit'
+import DashboardEditEnterprise from './dashboard/enterprises/edit'
 
 function NavBar() {
     return (
@@ -27,9 +27,14 @@ function EnterprisesHome() {
     const [myEnterprises, setMyEnterprises] = useState([])
 
     const fetchEnterprises = async () => {
-        const allEnterprises = await API.graphql({query: listEnterprises});
+        const allEnterprises = await API.graphql({
+            query: enterprisesByOwner,
+            variables: {
+                owner: 'c216b0a4-188a-4062-aa58-8c0d0b27c307::nicoadmin'
+            }
+        });
         console.log(allEnterprises);
-        setMyEnterprises(allEnterprises.data.listEnterprises.items)
+        setMyEnterprises(allEnterprises.data.enterprisesByOwner.items)
     }
 
     useEffect(() => {
