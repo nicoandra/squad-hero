@@ -1,11 +1,9 @@
 import { ScrollView, Grid, View, Flex, Button, CheckboxField } from "@aws-amplify/ui-react"
 import { Link, Outlet } from "react-router-dom"
 import { Auth } from "@aws-amplify/auth"
-import React, { useEffect, useState } from 'react';
-import { Hub } from 'aws-amplify';
+import React, { useState } from 'react';
 import JSONViewer from 'react-json-viewer';
-
-
+import useAuthUser from "../hooks/useAuthUser";
 
 function LogOutButton({currentUser}) {
     const signOut = async () => {
@@ -50,6 +48,9 @@ function Footer({currentUser}) {
 }
 
 export default function Layout() {
+    const currentUser = useAuthUser();
+    
+    /*
     const [currentUser, setCurrentUser] = useState(false)
     const [lastKnownUserAction, setLastKnownUserAction] = useState(false)
     
@@ -80,6 +81,7 @@ export default function Layout() {
     }
 
     Hub.listen('auth', listener)
+    */
 
     return (
         <Grid height="100%" templateRows="auto 1fr">

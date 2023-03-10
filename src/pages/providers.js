@@ -1,4 +1,4 @@
-import { Collection, Heading, Card, View } from "@aws-amplify/ui-react"
+import { Collection, Heading, View } from "@aws-amplify/ui-react"
 
 import { API } from "aws-amplify";
 import { listEnterprises } from './../graphql/queries';
@@ -17,7 +17,6 @@ export default function Providers() {
     }, [])
     
     useEffect(() => {
-        console.log("useEffect called once")
         query()
     }, [query])
 
@@ -31,7 +30,7 @@ export default function Providers() {
             <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
                 {(item, index) => {
                     return (
-                        <EnterpriseCard enterprise={item} index={index}/>
+                        <EnterpriseCard enterprise={item} key={index}/>
                     )
                 }}
             </Collection>
