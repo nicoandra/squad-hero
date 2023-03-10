@@ -1,16 +1,20 @@
 import { Collection, Heading, View } from "@aws-amplify/ui-react"
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/auth';
 
 import { API } from "aws-amplify";
-import { listEnterprises } from './../graphql/queries';
+import { listPublicEnterprises } from './../graphql/custom.queries';
 import { useState, useEffect, useCallback } from 'react'
 import EnterpriseCard from './../components/EnterpriseCard'
 
 export default function Providers() {
+
+    console.log(GRAPHQL_AUTH_MODE)
     const [providers, setProviders] = useState([])
 
     const query = useCallback(async () => {
         await API.graphql({
-            query: listEnterprises,
+            query: listPublicEnterprises,
+            authMode: GRAPHQL_AUTH_MODE.API_KEY
         }).then((r) => {
             setProviders((p)=> [...p, ...r.data.listEnterprises.items]);
         });        

@@ -1,5 +1,5 @@
 import { Heading, View } from "@aws-amplify/ui-react"
-import useAuthUser from "../hooks/useAuthUser"
+import { useAuthUser } from "../hooks/useAuthUser"
 
 export default function Home() {
     const user = useAuthUser()

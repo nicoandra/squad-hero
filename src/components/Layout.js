@@ -3,13 +3,12 @@ import { Link, Outlet } from "react-router-dom"
 import { Auth } from "@aws-amplify/auth"
 import React, { useState } from 'react';
 import JSONViewer from 'react-json-viewer';
-import useAuthUser from "../hooks/useAuthUser";
+import { useAuthUser } from "../hooks/useAuthUser";
 
 function LogOutButton({currentUser}) {
     const signOut = async () => {
-        return Auth.signOut()
+        return Auth.signOut({global: true})
     }
-    
     return (currentUser ? <Button onClick={signOut}>Log out</Button>: 'No user logged in')
 }
 
