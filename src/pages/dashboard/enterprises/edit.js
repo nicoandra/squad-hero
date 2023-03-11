@@ -33,10 +33,7 @@ function DashboardEditEnterprise() {
             variables: {
                 input: {
                     "id": receivedEnterpriseId,
-                    "name": fields['name'],
-                    "officePhone": fields['officePhone'],
-                    "cellPhone": fields['cellPhone'],
-                    "email": fields['email']
+                    ...fields
                 }
             }
         }).then((r) => {

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, HeadingProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
@@ -17,20 +17,37 @@ export declare type UpdateEnterpriseInputValues = {
     cellPhone?: string;
     officePhone?: string;
     email?: string;
+    addressNumber?: string;
+    addressStreetName?: string;
+    latitude?: string;
+    longitude?: string;
+    radius?: string;
 };
 export declare type UpdateEnterpriseValidationValues = {
     name?: ValidationFunction<string>;
     cellPhone?: ValidationFunction<string>;
     officePhone?: ValidationFunction<string>;
     email?: ValidationFunction<string>;
+    addressNumber?: ValidationFunction<string>;
+    addressStreetName?: ValidationFunction<string>;
+    latitude?: ValidationFunction<string>;
+    longitude?: ValidationFunction<string>;
+    radius?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type UpdateEnterpriseOverridesProps = {
     UpdateEnterpriseGrid?: PrimitiveOverrideProps<GridProps>;
+    SectionalElement0?: PrimitiveOverrideProps<HeadingProps>;
     name?: PrimitiveOverrideProps<TextFieldProps>;
     cellPhone?: PrimitiveOverrideProps<TextFieldProps>;
     officePhone?: PrimitiveOverrideProps<TextFieldProps>;
     email?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement1?: PrimitiveOverrideProps<HeadingProps>;
+    addressNumber?: PrimitiveOverrideProps<TextFieldProps>;
+    addressStreetName?: PrimitiveOverrideProps<TextFieldProps>;
+    latitude?: PrimitiveOverrideProps<TextFieldProps>;
+    longitude?: PrimitiveOverrideProps<TextFieldProps>;
+    radius?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type UpdateEnterpriseProps = React.PropsWithChildren<{
     overrides?: UpdateEnterpriseOverridesProps | undefined | null;

@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, Heading, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { fetchByPath, validateField } from "./utils";
 export default function UpdateEnterprise(props) {
@@ -17,6 +17,11 @@ export default function UpdateEnterprise(props) {
     cellPhone: "",
     officePhone: "",
     email: "",
+    addressNumber: "",
+    addressStreetName: "",
+    latitude: "",
+    longitude: "",
+    radius: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [cellPhone, setCellPhone] = React.useState(initialValues.cellPhone);
@@ -24,6 +29,15 @@ export default function UpdateEnterprise(props) {
     initialValues.officePhone
   );
   const [email, setEmail] = React.useState(initialValues.email);
+  const [addressNumber, setAddressNumber] = React.useState(
+    initialValues.addressNumber
+  );
+  const [addressStreetName, setAddressStreetName] = React.useState(
+    initialValues.addressStreetName
+  );
+  const [latitude, setLatitude] = React.useState(initialValues.latitude);
+  const [longitude, setLongitude] = React.useState(initialValues.longitude);
+  const [radius, setRadius] = React.useState(initialValues.radius);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = initialData
@@ -33,6 +47,11 @@ export default function UpdateEnterprise(props) {
     setCellPhone(cleanValues.cellPhone);
     setOfficePhone(cleanValues.officePhone);
     setEmail(cleanValues.email);
+    setAddressNumber(cleanValues.addressNumber);
+    setAddressStreetName(cleanValues.addressStreetName);
+    setLatitude(cleanValues.latitude);
+    setLongitude(cleanValues.longitude);
+    setRadius(cleanValues.radius);
     setErrors({});
   };
   React.useEffect(resetStateValues, [initialData]);
@@ -42,6 +61,11 @@ export default function UpdateEnterprise(props) {
       setCellPhone(initialData.cellPhone);
       setOfficePhone(initialData.officePhone);
       setEmail(initialData.email);
+      setAddressNumber(initialData.addressNumber);
+      setAddressStreetName(initialData.addressStreetName);
+      setLatitude(initialData.latitude);
+      setLongitude(initialData.longitude);
+      setRadius(initialData.radius);
     }
   }, []);
   const validations = {
@@ -49,6 +73,11 @@ export default function UpdateEnterprise(props) {
     cellPhone: [{ type: "Required" }, { type: "Phone" }],
     officePhone: [{ type: "Required" }, { type: "Phone" }],
     email: [{ type: "Required" }, { type: "Email" }],
+    addressNumber: [],
+    addressStreetName: [],
+    latitude: [],
+    longitude: [],
+    radius: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -80,6 +109,11 @@ export default function UpdateEnterprise(props) {
           cellPhone,
           officePhone,
           email,
+          addressNumber,
+          addressStreetName,
+          latitude,
+          longitude,
+          radius,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -105,6 +139,10 @@ export default function UpdateEnterprise(props) {
       {...getOverrideProps(overrides, "UpdateEnterprise")}
       {...rest}
     >
+      <Heading
+        children="Enterprise"
+        {...getOverrideProps(overrides, "SectionalElement0")}
+      ></Heading>
       <TextField
         label="Name"
         isRequired={true}
@@ -117,6 +155,11 @@ export default function UpdateEnterprise(props) {
               cellPhone,
               officePhone,
               email,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -144,6 +187,11 @@ export default function UpdateEnterprise(props) {
               cellPhone: value,
               officePhone,
               email,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius,
             };
             const result = onChange(modelFields);
             value = result?.cellPhone ?? value;
@@ -171,6 +219,11 @@ export default function UpdateEnterprise(props) {
               cellPhone,
               officePhone: value,
               email,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius,
             };
             const result = onChange(modelFields);
             value = result?.officePhone ?? value;
@@ -197,6 +250,11 @@ export default function UpdateEnterprise(props) {
               cellPhone,
               officePhone,
               email: value,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius,
             };
             const result = onChange(modelFields);
             value = result?.email ?? value;
@@ -210,6 +268,168 @@ export default function UpdateEnterprise(props) {
         errorMessage={errors.email?.errorMessage}
         hasError={errors.email?.hasError}
         {...getOverrideProps(overrides, "email")}
+      ></TextField>
+      <Heading
+        children="Address"
+        {...getOverrideProps(overrides, "SectionalElement1")}
+      ></Heading>
+      <TextField
+        label="Address Number"
+        value={addressNumber}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              cellPhone,
+              officePhone,
+              email,
+              addressNumber: value,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius,
+            };
+            const result = onChange(modelFields);
+            value = result?.addressNumber ?? value;
+          }
+          if (errors.addressNumber?.hasError) {
+            runValidationTasks("addressNumber", value);
+          }
+          setAddressNumber(value);
+        }}
+        onBlur={() => runValidationTasks("addressNumber", addressNumber)}
+        errorMessage={errors.addressNumber?.errorMessage}
+        hasError={errors.addressNumber?.hasError}
+        {...getOverrideProps(overrides, "addressNumber")}
+      ></TextField>
+      <TextField
+        label="Address Street Name"
+        value={addressStreetName}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              cellPhone,
+              officePhone,
+              email,
+              addressNumber,
+              addressStreetName: value,
+              latitude,
+              longitude,
+              radius,
+            };
+            const result = onChange(modelFields);
+            value = result?.addressStreetName ?? value;
+          }
+          if (errors.addressStreetName?.hasError) {
+            runValidationTasks("addressStreetName", value);
+          }
+          setAddressStreetName(value);
+        }}
+        onBlur={() =>
+          runValidationTasks("addressStreetName", addressStreetName)
+        }
+        errorMessage={errors.addressStreetName?.errorMessage}
+        hasError={errors.addressStreetName?.hasError}
+        {...getOverrideProps(overrides, "addressStreetName")}
+      ></TextField>
+      <TextField
+        label="Latitude"
+        type="number"
+        step="any"
+        value={latitude}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              cellPhone,
+              officePhone,
+              email,
+              addressNumber,
+              addressStreetName,
+              latitude: value,
+              longitude,
+              radius,
+            };
+            const result = onChange(modelFields);
+            value = result?.latitude ?? value;
+          }
+          if (errors.latitude?.hasError) {
+            runValidationTasks("latitude", value);
+          }
+          setLatitude(value);
+        }}
+        onBlur={() => runValidationTasks("latitude", latitude)}
+        errorMessage={errors.latitude?.errorMessage}
+        hasError={errors.latitude?.hasError}
+        {...getOverrideProps(overrides, "latitude")}
+      ></TextField>
+      <TextField
+        label="Longitude"
+        type="number"
+        step="any"
+        value={longitude}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              cellPhone,
+              officePhone,
+              email,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude: value,
+              radius,
+            };
+            const result = onChange(modelFields);
+            value = result?.longitude ?? value;
+          }
+          if (errors.longitude?.hasError) {
+            runValidationTasks("longitude", value);
+          }
+          setLongitude(value);
+        }}
+        onBlur={() => runValidationTasks("longitude", longitude)}
+        errorMessage={errors.longitude?.errorMessage}
+        hasError={errors.longitude?.hasError}
+        {...getOverrideProps(overrides, "longitude")}
+      ></TextField>
+      <TextField
+        label="Radius"
+        type="number"
+        step="any"
+        value={radius}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              cellPhone,
+              officePhone,
+              email,
+              addressNumber,
+              addressStreetName,
+              latitude,
+              longitude,
+              radius: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.radius ?? value;
+          }
+          if (errors.radius?.hasError) {
+            runValidationTasks("radius", value);
+          }
+          setRadius(value);
+        }}
+        onBlur={() => runValidationTasks("radius", radius)}
+        errorMessage={errors.radius?.errorMessage}
+        hasError={errors.radius?.hasError}
+        {...getOverrideProps(overrides, "radius")}
       ></TextField>
       <Flex
         justifyContent="space-between"

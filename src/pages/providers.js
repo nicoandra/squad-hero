@@ -42,7 +42,11 @@ export default function Providers() {
                     {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
                     </Collection>
                     }</>
-                    <MapView />
+                    <MapView initialViewState={{
+                        latitude: 45.524952,
+                        longitude: -73.645960,
+                        zoom: 6,
+                    }}/>
                 </Grid>
         </View>
     )

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, HeadingProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
@@ -13,24 +13,50 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type CreateEnterpriseInputValues = {
-    Field1?: string;
-    Field0?: string;
-    Field2?: string;
-    Field3?: string;
+    name?: string;
+    officePhone?: string;
+    cellPhone?: string;
+    email?: string;
+    addressNumber?: string;
+    addressStreetName?: string;
+    addressZipCode?: string;
+    addressStateName?: string;
+    addressCountryName?: string;
+    latitude?: string;
+    longitude?: string;
+    radius?: string;
 };
 export declare type CreateEnterpriseValidationValues = {
-    Field1?: ValidationFunction<string>;
-    Field0?: ValidationFunction<string>;
-    Field2?: ValidationFunction<string>;
-    Field3?: ValidationFunction<string>;
+    name?: ValidationFunction<string>;
+    officePhone?: ValidationFunction<string>;
+    cellPhone?: ValidationFunction<string>;
+    email?: ValidationFunction<string>;
+    addressNumber?: ValidationFunction<string>;
+    addressStreetName?: ValidationFunction<string>;
+    addressZipCode?: ValidationFunction<string>;
+    addressStateName?: ValidationFunction<string>;
+    addressCountryName?: ValidationFunction<string>;
+    latitude?: ValidationFunction<string>;
+    longitude?: ValidationFunction<string>;
+    radius?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type CreateEnterpriseOverridesProps = {
     CreateEnterpriseGrid?: PrimitiveOverrideProps<GridProps>;
-    Field1?: PrimitiveOverrideProps<TextFieldProps>;
-    Field0?: PrimitiveOverrideProps<TextFieldProps>;
-    Field2?: PrimitiveOverrideProps<TextFieldProps>;
-    Field3?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement1?: PrimitiveOverrideProps<HeadingProps>;
+    name?: PrimitiveOverrideProps<TextFieldProps>;
+    officePhone?: PrimitiveOverrideProps<TextFieldProps>;
+    cellPhone?: PrimitiveOverrideProps<TextFieldProps>;
+    email?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement0?: PrimitiveOverrideProps<HeadingProps>;
+    addressNumber?: PrimitiveOverrideProps<TextFieldProps>;
+    addressStreetName?: PrimitiveOverrideProps<TextFieldProps>;
+    addressZipCode?: PrimitiveOverrideProps<TextFieldProps>;
+    addressStateName?: PrimitiveOverrideProps<TextFieldProps>;
+    addressCountryName?: PrimitiveOverrideProps<TextFieldProps>;
+    latitude?: PrimitiveOverrideProps<TextFieldProps>;
+    longitude?: PrimitiveOverrideProps<TextFieldProps>;
+    radius?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type CreateEnterpriseProps = React.PropsWithChildren<{
     overrides?: CreateEnterpriseOverridesProps | undefined | null;

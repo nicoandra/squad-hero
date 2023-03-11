@@ -11,6 +11,14 @@ export const createEnterprise = /* GraphQL */ `
       name
       officePhone
       cellPhone
+      addressStreetName
+      addressNumber
+      addressZipCode
+      addressStateName
+      addressCountryName
+      latitude
+      longitude
+      radius
       email
       owner
       contracts {
@@ -49,6 +57,14 @@ export const updateEnterprise = /* GraphQL */ `
       name
       officePhone
       cellPhone
+      addressStreetName
+      addressNumber
+      addressZipCode
+      addressStateName
+      addressCountryName
+      latitude
+      longitude
+      radius
       email
       owner
       contracts {
@@ -87,6 +103,14 @@ export const deleteEnterprise = /* GraphQL */ `
       name
       officePhone
       cellPhone
+      addressStreetName
+      addressNumber
+      addressZipCode
+      addressStateName
+      addressCountryName
+      latitude
+      longitude
+      radius
       email
       owner
       contracts {
@@ -140,6 +164,14 @@ export const createContract = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {
@@ -178,6 +210,14 @@ export const updateContract = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {
@@ -216,6 +256,14 @@ export const deleteContract = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {

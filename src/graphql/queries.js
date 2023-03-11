@@ -23,6 +23,14 @@ export const getContract = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {
@@ -71,6 +79,14 @@ export const listContracts = /* GraphQL */ `
           name
           officePhone
           cellPhone
+          addressStreetName
+          addressNumber
+          addressZipCode
+          addressStateName
+          addressCountryName
+          latitude
+          longitude
+          radius
           email
           owner
           createdAt
@@ -120,6 +136,14 @@ export const contractsByEnterpriseIdAndStartDate = /* GraphQL */ `
           name
           officePhone
           cellPhone
+          addressStreetName
+          addressNumber
+          addressZipCode
+          addressStateName
+          addressCountryName
+          latitude
+          longitude
+          radius
           email
           owner
           createdAt
@@ -169,6 +193,14 @@ export const contractsByOwnerAndId = /* GraphQL */ `
           name
           officePhone
           cellPhone
+          addressStreetName
+          addressNumber
+          addressZipCode
+          addressStateName
+          addressCountryName
+          latitude
+          longitude
+          radius
           email
           owner
           createdAt
@@ -188,6 +220,14 @@ export const getEnterprise = /* GraphQL */ `
       name
       officePhone
       cellPhone
+      addressStreetName
+      addressNumber
+      addressZipCode
+      addressStateName
+      addressCountryName
+      latitude
+      longitude
+      radius
       email
       owner
       contracts {
@@ -236,6 +276,14 @@ export const listEnterprises = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {
@@ -268,6 +316,14 @@ export const enterprisesByOwner = /* GraphQL */ `
         name
         officePhone
         cellPhone
+        addressStreetName
+        addressNumber
+        addressZipCode
+        addressStateName
+        addressCountryName
+        latitude
+        longitude
+        radius
         email
         owner
         contracts {
