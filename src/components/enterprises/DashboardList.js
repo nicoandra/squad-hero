@@ -3,15 +3,17 @@ import EnterpriseCard from "../EnterpriseCard";
 import { API } from "aws-amplify";
 import { enterprisesByOwner } from "../../graphql/queries";
 import { useEffect, useState } from 'react'
+import { useAuthUser } from './../../hooks/useAuthUser'
 
 function EnterpriseDashboardList() {
     const [myEnterprises, setMyEnterprises] = useState([])
+    const { userIdentification } = useAuthUser()
 
     const fetchEnterprises = async () => {
         const allEnterprises = await API.graphql({
             query: enterprisesByOwner,
             variables: {
-                owner: 'c216b0a4-188a-4062-aa58-8c0d0b27c307::nicoadmin'
+                owner: userIdentification
             }
         });
         setMyEnterprises(allEnterprises.data.enterprisesByOwner.items)
@@ -19,7 +21,7 @@ function EnterpriseDashboardList() {
 
     useEffect(() => {
         fetchEnterprises()
-    } , [])
+    } , [userIdentification])
 
     return (<>
         <Collection items={myEnterprises} type="list" direction="row" gap="20px" wrap="nowrap">

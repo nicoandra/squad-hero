@@ -47,7 +47,7 @@ function Footer({currentUser}) {
 }
 
 export default function Layout() {
-    const currentUser = useAuthUser();
+    const {user: currentUser} = useAuthUser();
     
     /*
     const [currentUser, setCurrentUser] = useState(false)
