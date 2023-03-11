@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import { ScrollView, View, Flex } from "@aws-amplify/ui-react"
 import { Link, Outlet } from "react-router-dom"
 import { useState } from 'react'
-
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import EnterpriseDashboardList from './../components/enterprises/DashboardList'
 import DashboardCreateNewEnterprise from './../components/enterprises/DashboardCreateNew'
 import DashboardEditEnterprise from './dashboard/enterprises/edit'
@@ -23,6 +23,7 @@ function NavBar() {
 
 function EnterprisesHome() {
     const [doRefresh, setDoRefresh] = useState(false);
+    useDocumentTitle('Enterprises')
 
     return (
         <Flex direction={{ base: 'row', medium: 'column' }}>
@@ -37,10 +38,12 @@ function EnterprisesHome() {
 }
 
 function ContractsHome() {
+    useDocumentTitle('Contracts')
     return <Heading>Contracts Home</Heading>
 }
 
 function DashboardHeader () {
+    useDocumentTitle('Dashboard')
     return (
         <>
             <Heading>Dashboard</Heading>
