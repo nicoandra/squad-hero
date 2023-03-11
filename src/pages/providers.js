@@ -1,4 +1,4 @@
-import { Collection, Heading, View } from "@aws-amplify/ui-react"
+import { Collection, Heading, View, Loader } from "@aws-amplify/ui-react"
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/auth';
 
 import { API } from "aws-amplify";
@@ -8,12 +8,14 @@ import EnterpriseCard from './../components/EnterpriseCard'
 
 export default function Providers() {
     const [providers, setProviders] = useState([])
+    const [loading, setIsLoading] = useState(true)
 
     const query = useCallback(async () => {
         await API.graphql({
             query: listPublicEnterprises,
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         }).then((r) => {
+            setIsLoading(false);
             setProviders((p)=> [...p, ...r.data.listEnterprises.items]);
         });        
     }, [])
@@ -29,9 +31,12 @@ export default function Providers() {
     return (
         <View>
             <Heading>Known Providers</Heading>
-            <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
-                {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
-            </Collection>
+            {   loading ? 
+                <Loader /> : 
+                <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
+                    {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
+                </Collection>
+            }
         </View>
     )
 }
