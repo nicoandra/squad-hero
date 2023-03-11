@@ -16,8 +16,8 @@ function Header({currentUser}) {
                 <Flex>
                     <Link to="/">Home</Link>
                     <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/about">About</Link>
                     <Link to="/providers">Providers</Link>
+                    <Link to="/about">About</Link>
                     <LogOutButton currentUser={currentUser} />
                 </Flex>
             </Flex>

@@ -30,11 +30,7 @@ export default function Providers() {
         <View>
             <Heading>Known Providers</Heading>
             <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
-                {(item, index) => {
-                    return (
-                        <EnterpriseCard enterprise={item} key={index}/>
-                    )
-                }}
+                {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
             </Collection>
         </View>
     )

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Hub, Auth } from 'aws-amplify';
 
 export const useAuthUser = () => {
@@ -7,11 +7,11 @@ export const useAuthUser = () => {
     const [user, setUser] = useState(false);
     const [lastKnownUserAction, setLastKnownUserAction] = useState(undefined)
 
-    const resetAll = () => {
+    const resetAll = useCallback(() => {
         setUser(false);
         setUsername('')
         setUserIdentification('');
-    }
+    }, [])
 
     const listener = (event) => {
         setLastKnownUserAction(event.payload.event)
@@ -39,7 +39,7 @@ export const useAuthUser = () => {
         catch (e) {
             resetAll();
         }
-    }, [lastKnownUserAction, username]);
+    }, [lastKnownUserAction, username, resetAll]);
 
     return {
         user, 
