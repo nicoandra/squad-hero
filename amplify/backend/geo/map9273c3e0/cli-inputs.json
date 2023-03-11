@@ -1,0 +1,6 @@
+{
+  "groupPermissions": [
+    "admin",
+    "nonAdmin"
+  ]
+}
