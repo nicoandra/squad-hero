@@ -1,4 +1,4 @@
-import { Collection, Heading, View, Loader } from "@aws-amplify/ui-react"
+import { Collection, Heading, View, Loader, Grid } from "@aws-amplify/ui-react"
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/auth';
 
 import { API } from "aws-amplify";
@@ -31,12 +31,16 @@ export default function Providers() {
     return (
         <View>
             <Heading>Known Providers</Heading>
-            {   loading ? 
-                <Loader /> : 
-                <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
+                <Grid 
+                    templateColumns="1fr 3fr"
+                    columnGap="0.5rem"
+                >
+                    <>{ loading ? <Loader /> :  <Collection items={providers} type="list" direction="column" gap="20px" wrap="nowrap">
                     {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
-                </Collection>
-            }
+                    </Collection>
+                    }</>
+                    <span>Map goes here</span>
+                </Grid>
         </View>
     )
 }
