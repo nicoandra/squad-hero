@@ -6,6 +6,9 @@ import { listPublicEnterprises } from './../graphql/custom.queries';
 import { useState, useEffect, useCallback } from 'react'
 import EnterpriseCard from './../components/EnterpriseCard'
 
+import { MapView } from '@aws-amplify/ui-react';
+
+
 export default function Providers() {
     const [providers, setProviders] = useState([])
     const [loading, setIsLoading] = useState(true)
@@ -39,7 +42,7 @@ export default function Providers() {
                     {(item, index) => (<EnterpriseCard enterprise={item} key={index}/>)}
                     </Collection>
                     }</>
-                    <span>Map goes here</span>
+                    <MapView />
                 </Grid>
         </View>
     )

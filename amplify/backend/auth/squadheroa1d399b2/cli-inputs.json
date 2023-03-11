@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "squadheroa1d399b2_identitypool_a1d399b2",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "squadha1d399b2",
     "userPoolName": "squadheroa1d399b2_userpool_a1d399b2",
     "autoVerifiedAttributes": [
@@ -75,7 +75,7 @@
       }
     ],
     "thirdPartyAuth": false,
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "hostedUI": false,
     "authProviders": [],
