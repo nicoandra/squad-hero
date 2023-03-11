@@ -1,15 +1,12 @@
 import { ScrollView, Grid, View, Flex, Button, CheckboxField } from "@aws-amplify/ui-react"
 import { Link, Outlet } from "react-router-dom"
-import { Auth } from "@aws-amplify/auth"
 import React, { useState } from 'react';
 import JSONViewer from 'react-json-viewer';
 import { useAuthUser } from "../hooks/useAuthUser";
 
 function LogOutButton({currentUser}) {
-    const signOut = async () => {
-        return Auth.signOut({global: true})
-    }
-    return (currentUser ? <Button onClick={signOut}>Log out</Button>: 'No user logged in')
+    const { signOut, username } = useAuthUser()
+    return (currentUser ? <Button onClick={signOut}>Sign off {username}</Button>: 'No user logged in')
 }
 
 function Header({currentUser}) {

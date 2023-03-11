@@ -7,8 +7,6 @@ import { useState, useEffect, useCallback } from 'react'
 import EnterpriseCard from './../components/EnterpriseCard'
 
 export default function Providers() {
-
-    console.log(GRAPHQL_AUTH_MODE)
     const [providers, setProviders] = useState([])
 
     const query = useCallback(async () => {

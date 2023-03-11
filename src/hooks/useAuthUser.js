@@ -20,6 +20,8 @@ export const useAuthUser = () => {
         }
     }
 
+    const signOut = () => Auth.signOut({global: true})
+
     Hub.listen('auth', listener)
     
     useEffect(() => {
@@ -42,6 +44,7 @@ export const useAuthUser = () => {
     return {
         user, 
         userIdentification, 
-        username
+        username,
+        signOut
     };
 }
