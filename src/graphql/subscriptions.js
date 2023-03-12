@@ -31,9 +31,7 @@ export const onCreateContract = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {
@@ -77,9 +75,7 @@ export const onUpdateContract = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {
@@ -123,9 +119,7 @@ export const onDeleteContract = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {
@@ -154,9 +148,7 @@ export const onCreateEnterprise = /* GraphQL */ `
       addressZipCode
       addressStateName
       addressCountryName
-      latitude
-      longitude
-      radius
+      serviceZone
       email
       owner
       contracts {
@@ -200,9 +192,7 @@ export const onUpdateEnterprise = /* GraphQL */ `
       addressZipCode
       addressStateName
       addressCountryName
-      latitude
-      longitude
-      radius
+      serviceZone
       email
       owner
       contracts {
@@ -246,9 +236,7 @@ export const onDeleteEnterprise = /* GraphQL */ `
       addressZipCode
       addressStateName
       addressCountryName
-      latitude
-      longitude
-      radius
+      serviceZone
       email
       owner
       contracts {

@@ -17,9 +17,7 @@ type Enterprise @model @auth(rules: [
   addressZipCode: String
   addressStateName: String
   addressCountryName: String
-  latitude: Float
-  longitude: Float
-  radius: Int
+  serviceZone: String
   email: AWSEmail!
   owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }, {allow: private, operations: [read]}, {allow: public, operations: [read]},]) @index(name: "byOwnerId")
   contracts: [Contract] @hasMany(indexName: "byEnterpriseByDate", fields: ["id"])

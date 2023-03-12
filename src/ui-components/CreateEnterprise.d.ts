@@ -22,9 +22,7 @@ export declare type CreateEnterpriseInputValues = {
     addressZipCode?: string;
     addressStateName?: string;
     addressCountryName?: string;
-    latitude?: string;
-    longitude?: string;
-    radius?: string;
+    serviceZone?: string;
 };
 export declare type CreateEnterpriseValidationValues = {
     name?: ValidationFunction<string>;
@@ -36,9 +34,7 @@ export declare type CreateEnterpriseValidationValues = {
     addressZipCode?: ValidationFunction<string>;
     addressStateName?: ValidationFunction<string>;
     addressCountryName?: ValidationFunction<string>;
-    latitude?: ValidationFunction<string>;
-    longitude?: ValidationFunction<string>;
-    radius?: ValidationFunction<string>;
+    serviceZone?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type CreateEnterpriseOverridesProps = {
@@ -54,9 +50,7 @@ export declare type CreateEnterpriseOverridesProps = {
     addressZipCode?: PrimitiveOverrideProps<TextFieldProps>;
     addressStateName?: PrimitiveOverrideProps<TextFieldProps>;
     addressCountryName?: PrimitiveOverrideProps<TextFieldProps>;
-    latitude?: PrimitiveOverrideProps<TextFieldProps>;
-    longitude?: PrimitiveOverrideProps<TextFieldProps>;
-    radius?: PrimitiveOverrideProps<TextFieldProps>;
+    serviceZone?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type CreateEnterpriseProps = React.PropsWithChildren<{
     overrides?: CreateEnterpriseOverridesProps | undefined | null;

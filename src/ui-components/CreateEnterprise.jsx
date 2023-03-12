@@ -21,9 +21,7 @@ export default function CreateEnterprise(props) {
     addressZipCode: "",
     addressStateName: "",
     addressCountryName: "",
-    latitude: "",
-    longitude: "",
-    radius: "",
+    serviceZone: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [officePhone, setOfficePhone] = React.useState(
@@ -46,9 +44,9 @@ export default function CreateEnterprise(props) {
   const [addressCountryName, setAddressCountryName] = React.useState(
     initialValues.addressCountryName
   );
-  const [latitude, setLatitude] = React.useState(initialValues.latitude);
-  const [longitude, setLongitude] = React.useState(initialValues.longitude);
-  const [radius, setRadius] = React.useState(initialValues.radius);
+  const [serviceZone, setServiceZone] = React.useState(
+    initialValues.serviceZone
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
@@ -60,9 +58,7 @@ export default function CreateEnterprise(props) {
     setAddressZipCode(initialValues.addressZipCode);
     setAddressStateName(initialValues.addressStateName);
     setAddressCountryName(initialValues.addressCountryName);
-    setLatitude(initialValues.latitude);
-    setLongitude(initialValues.longitude);
-    setRadius(initialValues.radius);
+    setServiceZone(initialValues.serviceZone);
     setErrors({});
   };
   const validations = {
@@ -75,9 +71,7 @@ export default function CreateEnterprise(props) {
     addressZipCode: [],
     addressStateName: [],
     addressCountryName: [],
-    latitude: [],
-    longitude: [],
-    radius: [],
+    serviceZone: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -114,9 +108,7 @@ export default function CreateEnterprise(props) {
           addressZipCode,
           addressStateName,
           addressCountryName,
-          latitude,
-          longitude,
-          radius,
+          serviceZone,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -163,9 +155,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -198,9 +188,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.officePhone ?? value;
@@ -233,9 +221,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.cellPhone ?? value;
@@ -266,9 +252,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.email ?? value;
@@ -303,9 +287,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressNumber ?? value;
@@ -336,9 +318,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressStreetName ?? value;
@@ -371,9 +351,7 @@ export default function CreateEnterprise(props) {
               addressZipCode: value,
               addressStateName,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressZipCode ?? value;
@@ -404,9 +382,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName: value,
               addressCountryName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressStateName ?? value;
@@ -437,9 +413,7 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName: value,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressCountryName ?? value;
@@ -457,10 +431,8 @@ export default function CreateEnterprise(props) {
         {...getOverrideProps(overrides, "addressCountryName")}
       ></TextField>
       <TextField
-        label="Latitude"
-        type="number"
-        step="any"
-        value={latitude}
+        label="Service Zone"
+        value={serviceZone}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -474,92 +446,20 @@ export default function CreateEnterprise(props) {
               addressZipCode,
               addressStateName,
               addressCountryName,
-              latitude: value,
-              longitude,
-              radius,
+              serviceZone: value,
             };
             const result = onChange(modelFields);
-            value = result?.latitude ?? value;
+            value = result?.serviceZone ?? value;
           }
-          if (errors.latitude?.hasError) {
-            runValidationTasks("latitude", value);
+          if (errors.serviceZone?.hasError) {
+            runValidationTasks("serviceZone", value);
           }
-          setLatitude(value);
+          setServiceZone(value);
         }}
-        onBlur={() => runValidationTasks("latitude", latitude)}
-        errorMessage={errors.latitude?.errorMessage}
-        hasError={errors.latitude?.hasError}
-        {...getOverrideProps(overrides, "latitude")}
-      ></TextField>
-      <TextField
-        label="Longitude"
-        type="number"
-        step="any"
-        value={longitude}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              officePhone,
-              cellPhone,
-              email,
-              addressNumber,
-              addressStreetName,
-              addressZipCode,
-              addressStateName,
-              addressCountryName,
-              latitude,
-              longitude: value,
-              radius,
-            };
-            const result = onChange(modelFields);
-            value = result?.longitude ?? value;
-          }
-          if (errors.longitude?.hasError) {
-            runValidationTasks("longitude", value);
-          }
-          setLongitude(value);
-        }}
-        onBlur={() => runValidationTasks("longitude", longitude)}
-        errorMessage={errors.longitude?.errorMessage}
-        hasError={errors.longitude?.hasError}
-        {...getOverrideProps(overrides, "longitude")}
-      ></TextField>
-      <TextField
-        label="Radius"
-        type="number"
-        step="any"
-        value={radius}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              officePhone,
-              cellPhone,
-              email,
-              addressNumber,
-              addressStreetName,
-              addressZipCode,
-              addressStateName,
-              addressCountryName,
-              latitude,
-              longitude,
-              radius: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.radius ?? value;
-          }
-          if (errors.radius?.hasError) {
-            runValidationTasks("radius", value);
-          }
-          setRadius(value);
-        }}
-        onBlur={() => runValidationTasks("radius", radius)}
-        errorMessage={errors.radius?.errorMessage}
-        hasError={errors.radius?.hasError}
-        {...getOverrideProps(overrides, "radius")}
+        onBlur={() => runValidationTasks("serviceZone", serviceZone)}
+        errorMessage={errors.serviceZone?.errorMessage}
+        hasError={errors.serviceZone?.hasError}
+        {...getOverrideProps(overrides, "serviceZone")}
       ></TextField>
       <Flex
         justifyContent="space-between"

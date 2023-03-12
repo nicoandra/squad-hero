@@ -28,9 +28,7 @@ export const getContract = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {
@@ -84,9 +82,7 @@ export const listContracts = /* GraphQL */ `
           addressZipCode
           addressStateName
           addressCountryName
-          latitude
-          longitude
-          radius
+          serviceZone
           email
           owner
           createdAt
@@ -141,9 +137,7 @@ export const contractsByEnterpriseIdAndStartDate = /* GraphQL */ `
           addressZipCode
           addressStateName
           addressCountryName
-          latitude
-          longitude
-          radius
+          serviceZone
           email
           owner
           createdAt
@@ -198,9 +192,7 @@ export const contractsByOwnerAndId = /* GraphQL */ `
           addressZipCode
           addressStateName
           addressCountryName
-          latitude
-          longitude
-          radius
+          serviceZone
           email
           owner
           createdAt
@@ -225,9 +217,7 @@ export const getEnterprise = /* GraphQL */ `
       addressZipCode
       addressStateName
       addressCountryName
-      latitude
-      longitude
-      radius
+      serviceZone
       email
       owner
       contracts {
@@ -281,9 +271,7 @@ export const listEnterprises = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {
@@ -321,9 +309,7 @@ export const enterprisesByOwner = /* GraphQL */ `
         addressZipCode
         addressStateName
         addressCountryName
-        latitude
-        longitude
-        radius
+        serviceZone
         email
         owner
         contracts {

@@ -19,9 +19,7 @@ export declare type UpdateEnterpriseInputValues = {
     email?: string;
     addressNumber?: string;
     addressStreetName?: string;
-    latitude?: string;
-    longitude?: string;
-    radius?: string;
+    serviceZone?: string;
 };
 export declare type UpdateEnterpriseValidationValues = {
     name?: ValidationFunction<string>;
@@ -30,9 +28,7 @@ export declare type UpdateEnterpriseValidationValues = {
     email?: ValidationFunction<string>;
     addressNumber?: ValidationFunction<string>;
     addressStreetName?: ValidationFunction<string>;
-    latitude?: ValidationFunction<string>;
-    longitude?: ValidationFunction<string>;
-    radius?: ValidationFunction<string>;
+    serviceZone?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type UpdateEnterpriseOverridesProps = {
@@ -45,9 +41,7 @@ export declare type UpdateEnterpriseOverridesProps = {
     SectionalElement1?: PrimitiveOverrideProps<HeadingProps>;
     addressNumber?: PrimitiveOverrideProps<TextFieldProps>;
     addressStreetName?: PrimitiveOverrideProps<TextFieldProps>;
-    latitude?: PrimitiveOverrideProps<TextFieldProps>;
-    longitude?: PrimitiveOverrideProps<TextFieldProps>;
-    radius?: PrimitiveOverrideProps<TextFieldProps>;
+    serviceZone?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type UpdateEnterpriseProps = React.PropsWithChildren<{
     overrides?: UpdateEnterpriseOverridesProps | undefined | null;

@@ -19,9 +19,7 @@ export default function UpdateEnterprise(props) {
     email: "",
     addressNumber: "",
     addressStreetName: "",
-    latitude: "",
-    longitude: "",
-    radius: "",
+    serviceZone: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [cellPhone, setCellPhone] = React.useState(initialValues.cellPhone);
@@ -35,9 +33,9 @@ export default function UpdateEnterprise(props) {
   const [addressStreetName, setAddressStreetName] = React.useState(
     initialValues.addressStreetName
   );
-  const [latitude, setLatitude] = React.useState(initialValues.latitude);
-  const [longitude, setLongitude] = React.useState(initialValues.longitude);
-  const [radius, setRadius] = React.useState(initialValues.radius);
+  const [serviceZone, setServiceZone] = React.useState(
+    initialValues.serviceZone
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = initialData
@@ -49,9 +47,7 @@ export default function UpdateEnterprise(props) {
     setEmail(cleanValues.email);
     setAddressNumber(cleanValues.addressNumber);
     setAddressStreetName(cleanValues.addressStreetName);
-    setLatitude(cleanValues.latitude);
-    setLongitude(cleanValues.longitude);
-    setRadius(cleanValues.radius);
+    setServiceZone(cleanValues.serviceZone);
     setErrors({});
   };
   React.useEffect(resetStateValues, [initialData]);
@@ -63,9 +59,7 @@ export default function UpdateEnterprise(props) {
       setEmail(initialData.email);
       setAddressNumber(initialData.addressNumber);
       setAddressStreetName(initialData.addressStreetName);
-      setLatitude(initialData.latitude);
-      setLongitude(initialData.longitude);
-      setRadius(initialData.radius);
+      setServiceZone(initialData.serviceZone);
     }
   }, []);
   const validations = {
@@ -75,9 +69,7 @@ export default function UpdateEnterprise(props) {
     email: [{ type: "Required" }, { type: "Email" }],
     addressNumber: [],
     addressStreetName: [],
-    latitude: [],
-    longitude: [],
-    radius: [],
+    serviceZone: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -111,9 +103,7 @@ export default function UpdateEnterprise(props) {
           email,
           addressNumber,
           addressStreetName,
-          latitude,
-          longitude,
-          radius,
+          serviceZone,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -157,9 +147,7 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber,
               addressStreetName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -189,9 +177,7 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber,
               addressStreetName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.cellPhone ?? value;
@@ -221,9 +207,7 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber,
               addressStreetName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.officePhone ?? value;
@@ -252,9 +236,7 @@ export default function UpdateEnterprise(props) {
               email: value,
               addressNumber,
               addressStreetName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.email ?? value;
@@ -286,9 +268,7 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber: value,
               addressStreetName,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressNumber ?? value;
@@ -316,9 +296,7 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber,
               addressStreetName: value,
-              latitude,
-              longitude,
-              radius,
+              serviceZone,
             };
             const result = onChange(modelFields);
             value = result?.addressStreetName ?? value;
@@ -336,10 +314,10 @@ export default function UpdateEnterprise(props) {
         {...getOverrideProps(overrides, "addressStreetName")}
       ></TextField>
       <TextField
-        label="Latitude"
+        label="Service Zone"
         type="number"
         step="any"
-        value={latitude}
+        value={serviceZone}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -350,86 +328,20 @@ export default function UpdateEnterprise(props) {
               email,
               addressNumber,
               addressStreetName,
-              latitude: value,
-              longitude,
-              radius,
+              serviceZone: value,
             };
             const result = onChange(modelFields);
-            value = result?.latitude ?? value;
+            value = result?.serviceZone ?? value;
           }
-          if (errors.latitude?.hasError) {
-            runValidationTasks("latitude", value);
+          if (errors.serviceZone?.hasError) {
+            runValidationTasks("serviceZone", value);
           }
-          setLatitude(value);
+          setServiceZone(value);
         }}
-        onBlur={() => runValidationTasks("latitude", latitude)}
-        errorMessage={errors.latitude?.errorMessage}
-        hasError={errors.latitude?.hasError}
-        {...getOverrideProps(overrides, "latitude")}
-      ></TextField>
-      <TextField
-        label="Longitude"
-        type="number"
-        step="any"
-        value={longitude}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              cellPhone,
-              officePhone,
-              email,
-              addressNumber,
-              addressStreetName,
-              latitude,
-              longitude: value,
-              radius,
-            };
-            const result = onChange(modelFields);
-            value = result?.longitude ?? value;
-          }
-          if (errors.longitude?.hasError) {
-            runValidationTasks("longitude", value);
-          }
-          setLongitude(value);
-        }}
-        onBlur={() => runValidationTasks("longitude", longitude)}
-        errorMessage={errors.longitude?.errorMessage}
-        hasError={errors.longitude?.hasError}
-        {...getOverrideProps(overrides, "longitude")}
-      ></TextField>
-      <TextField
-        label="Radius"
-        type="number"
-        step="any"
-        value={radius}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              cellPhone,
-              officePhone,
-              email,
-              addressNumber,
-              addressStreetName,
-              latitude,
-              longitude,
-              radius: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.radius ?? value;
-          }
-          if (errors.radius?.hasError) {
-            runValidationTasks("radius", value);
-          }
-          setRadius(value);
-        }}
-        onBlur={() => runValidationTasks("radius", radius)}
-        errorMessage={errors.radius?.errorMessage}
-        hasError={errors.radius?.hasError}
-        {...getOverrideProps(overrides, "radius")}
+        onBlur={() => runValidationTasks("serviceZone", serviceZone)}
+        errorMessage={errors.serviceZone?.errorMessage}
+        hasError={errors.serviceZone?.hasError}
+        {...getOverrideProps(overrides, "serviceZone")}
       ></TextField>
       <Flex
         justifyContent="space-between"
